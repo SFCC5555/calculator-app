@@ -1,0 +1,142 @@
+@import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@700&display=swap');
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --main-font: 'League Spartan', sans-serif;
+
+  --theme-1-main-background: hsl(222, 26%, 31%);
+  --theme-1-switch-background: hsl(223, 31%, 20%);
+  --theme-1-keypad-background: hsl(223, 31%, 20%);
+  --theme-1-screen-background: hsl(224, 36%, 15%);
+
+  --theme-1-key-dark-background: hsl(225, 21%, 49%);
+  --theme-1-key-dark-hover: hsl(224, 51%, 76%);
+  --theme-1-key-dark-shadow: hsl(224, 28%, 35%);
+
+  --theme-1-key-special-background: hsl(6, 63%, 50%);
+  --theme-1-key-special-hover: hsl(6, 93%, 67%);
+  --theme-1-key-special-shadow: hsl(6, 70%, 34%);
+
+  --theme-1-key-clear-background: hsl(30, 25%, 89%);
+  --theme-1-key-clear-hover: hsl(0, 0%, 100%);
+  --theme-1-key-clear-shadow: hsl(28, 16%, 65%);
+
+  --theme-1-clear-text: hsl(221, 14%, 31%);
+  --theme-1-dark-text: hsl(0, 0%, 100%);
+  --theme-1-special-text: hsl(0, 0%, 100%);
+  --theme-1-main-text: hsl(0, 0%, 100%);
+
+
+  --theme-2-main-background: hsl(0, 0%, 90%);
+  --theme-2-switch-background: hsl(0, 5%, 81%);
+  --theme-2-keypad-background: hsl(0, 5%, 81%);
+  --theme-2-screen-background: hsl(0, 0%, 93%);
+
+  --theme-2-key-dark-background: hsl(185, 42%, 37%);
+  --theme-2-key-dark-hover: hsl(185, 41%, 56%);
+  --theme-2-key-dark-shadow: hsl(185, 58%, 25%);
+
+  --theme-2-key-special-background: hsl(25, 98%, 40%);
+  --theme-2-key-special-hover: hsl(25, 100%, 61%);
+  --theme-2-key-special-shadow: hsl(25, 99%, 27%);
+
+  --theme-2-key-clear-background: hsl(45, 7%, 89%);
+  --theme-2-key-clear-hover: hsl(0, 0%, 100%);
+  --theme-2-key-clear-shadow: hsl(35, 11%, 61%);
+
+  --theme-2-clear-text: hsl(60, 10%, 19%);
+  --theme-2-dark-text: hsl(0, 0%, 100%);
+  --theme-2-special-text: hsl(0, 0%, 100%);
+  --theme-2-main-text: hsl(60, 10%, 19%);
+
+
+
+  --theme-3-main-background: hsl(268, 75%, 9%);
+  --theme-3-switch-background: hsl(268, 71%, 12%);
+  --theme-3-keypad-background: hsl(268, 71%, 12%);
+  --theme-3-screen-background: hsl(268, 71%, 12%);
+
+  --theme-3-key-dark-background: hsl(281, 89%, 26%);
+  --theme-3-key-dark-hover: hsl(280, 56%, 44%);
+  --theme-3-key-dark-shadow: hsl(285, 91%, 52%);
+
+  --theme-3-key-special-background: hsl(176, 100%, 44%);
+  --theme-3-key-special-hover: hsl(177, 100%, 79%);
+  --theme-3-key-special-shadow: hsl(177, 92%, 70%);
+
+  --theme-3-key-clear-background: hsl(268, 47%, 21%);
+  --theme-3-key-clear-hover: hsl(268, 54%, 44%);
+  --theme-3-key-clear-shadow: hsl(290, 70%, 36%);
+
+  --theme-3-clear-text: hsl(52, 100%, 62%);
+  --theme-3-dark-text: hsl(0, 0%, 100%);
+  --theme-3-special-text: hsl(198, 20%, 13%);
+  --theme-3-main-text: hsl(52, 100%, 62%);
+
+}
+
+body {
+  height: 100svh;
+  font-family: var(--main-font);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#root {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@each $theme in 1,2,3 {
+
+  @each $background in 'main', 'keypad', 'screen' {
+    .theme-#{$theme}-#{$background}-background {
+      background-color: var(--theme-#{$theme}-#{$background}-background);
+      color:var(--theme-#{$theme}-main-text)
+    }
+  }
+
+  @each $color in 'dark','clear','special' {
+
+    .theme-#{$theme}-key-#{$color} {
+      background-color: var(--theme-#{$theme}-key-#{$color}-background);
+      box-shadow: 0 2px 0px var(--theme-#{$theme}-key-#{$color}-shadow);
+      color:var(--theme-#{$theme}-#{$color}-text);
+      border-color: var(--theme-#{$theme}-key-#{$color}-background);
+    }
+
+    .theme-#{$theme}-key-#{$color}:hover {
+      background-color: var(--theme-#{$theme}-key-#{$color}-hover);
+    }
+
+  }
+
+} 
+
+.calculator {
+  width: 100%;
+  max-width: 300px;
+}
+
+@media screen and (min-width: 600px) {
+  .calculator {
+    max-width: 400px;
+  }
+}
+
+p {
+  font-size: 14px;
+}
+
+.translate-y-100 {
+  translate: 0px 100%;
+}

@@ -1,0 +1,16 @@
+.keypad {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 12px;
+    padding: 20px;
+}
+
+button:nth-last-child(-n+2) {
+    grid-column-end: span 2;
+}
+
+@media screen and (min-width: 600px) {
+    .keypad  {
+        grid-gap: 20px;
+    }
+  }

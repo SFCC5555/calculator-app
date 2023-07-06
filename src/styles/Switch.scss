@@ -1,0 +1,49 @@
+.switch {
+    
+    appearance: none; /* Elimina los estilos predeterminados del navegador */
+    outline: none; /* Elimina el contorno al enfocar el rango */
+    padding: 5px;
+    margin: 0;
+    width: 50px;
+    height: 20px;
+    border-radius: 200px;
+    cursor: pointer;
+
+}
+
+.switch::-webkit-slider-thumb {
+    /* Estiliza el control deslizante en navegadores basados en WebKit (Chrome, Safari, etc.) */
+    appearance: none;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+  }
+  
+.switch::-moz-range-thumb {
+    /* Estiliza el control deslizante en navegadores basados en Gecko (Firefox) */
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+}
+
+@each $theme in 1,2,3 {
+    .theme-#{$theme}-switch {
+        background-color: var(--theme-#{$theme}-switch-background);
+    }
+
+    .theme-#{$theme}-switch::-webkit-slider-thumb {
+        background-color: var(--theme-#{$theme}-key-special-background);
+    }
+
+    .theme-#{$theme}-switch::-moz-range-thumb {
+        background-color: var(--theme-#{$theme}-key-special-background);
+    }
+
+    .theme-#{$theme}-switch::-webkit-slider-thumb:hover {
+        background-color: var(--theme-#{$theme}-key-special-hover);
+    }
+
+    .theme-#{$theme}-switch::-moz-range-thumb:hover {
+        background-color: var(--theme-#{$theme}-key-special-hover);
+    }
+} 
